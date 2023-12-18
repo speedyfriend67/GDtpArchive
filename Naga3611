@@ -1,0 +1,164 @@
+/**
+ * v0 by Vercel.
+ * @see https://v0.dev/t/FniBeCUrzdU
+ */
+import { Avatar } from "@/components/ui/avatar"
+import { CardHeader, CardContent, Card } from "@/components/ui/card"
+import { Label } from "@/components/ui/label"
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
+
+export default function Component() {
+  return (
+    <main className="bg-gray-900 text-gray-200 min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <Card className="max-w-md w-full space-y-8 bg-gray-800">
+        <CardHeader>
+          <Avatar alt="Logo" className="mx-auto h-12 w-auto" src="/placeholder.svg?height=48&width=48" />
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-200">Welcome to the Room</h2>
+        </CardHeader>
+        <CardContent className="mt-8 space-y-6">
+          <div className="rounded-md shadow-sm -space-y-px">
+            <div>
+              <Label className="sr-only" htmlFor="name">
+                Name
+              </Label>
+              <Input
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-700 placeholder-gray-500 text-gray-200 rounded-t-md focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm"
+                id="name"
+                name="name"
+                placeholder="Name"
+                required
+                type="text"
+              />
+            </div>
+            <div>
+              <Label className="sr-only" htmlFor="room-code">
+                Room Code
+              </Label>
+              <Input
+                autoComplete="room-code"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-700 placeholder-gray-500 text-gray-200 rounded-b-md focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm"
+                id="room-code"
+                name="room-code"
+                placeholder="Room code"
+                required
+                type="text"
+              />
+            </div>
+          </div>
+          <div>
+            <Button
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-gray-200 bg-gray-700 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+              type="submit"
+            >
+              Enter Room
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
+    </main>
+  )
+}
+/**
+ * v0 by Vercel.
+ * @see https://v0.dev/t/9JJxenWrVdT
+ */
+import Link from "next/link"
+import { CardTitle, CardHeader, CardContent, CardFooter, Card } from "@/components/ui/card"
+import { Avatar } from "@/components/ui/avatar"
+import { Textarea } from "@/components/ui/textarea"
+import { Button } from "@/components/ui/button"
+
+export default function Component() {
+  return (
+    <main className="bg-gray-800 h-screen flex">
+      <aside className="w-1/4 bg-gray-900 text-white">
+        <header className="p-4">
+          <h1 className="text-2xl font-bold">ChatApp</h1>
+        </header>
+        <nav className="p-4 space-y-4">
+          <Link className="block p-2 rounded hover:bg-gray-700 text-gray-300" href="#">
+            Home
+          </Link>
+          <Link className="block p-2 rounded hover:bg-gray-700 text-gray-300" href="#">
+            Group Chats
+          </Link>
+          <Link className="block p-2 rounded hover:bg-gray-700 text-gray-300" href="#">
+            Settings
+          </Link>
+          <Link className="block p-2 rounded hover:bg-gray-700 text-gray-300" href="#">
+            Logout
+          </Link>
+        </nav>
+      </aside>
+      <section className="w-3/4 p-4 text-gray-300">
+        <Card>
+          <CardHeader>
+            <div className="flex items-center space-x-2">
+              <GroupIcon className="w-8 h-8" />
+              <CardTitle className="text-xl text-blue-400">General Discussion</CardTitle>
+            </div>
+          </CardHeader>
+          <CardContent className="space-y-4 h-[80vh] overflow-y-auto bg-gray-700">
+            <div className="flex items-start space-x-2">
+              <Avatar className="w-6 h-6" src="/placeholder.svg?height=24&width=24" />
+              <div className="flex flex-col">
+                <div className="bg-gray-600 rounded-lg px-3 py-2">
+                  <span className="text-sm font-semibold bg-green-500 rounded-lg px-2 py-1 inline-block text-gray-800">
+                    John Doe:
+                  </span>
+                  <p className="mt-1 text-gray-300">Hello! How can I help you today?</p>
+                </div>
+                <span className="text-sm text-gray-500">09:34 AM</span>
+              </div>
+            </div>
+            <div className="flex items-start space-x-2">
+              <Avatar className="w-6 h-6" src="/placeholder.svg?height=24&width=24" />
+              <div className="flex flex-col">
+                <div className="bg-gray-600 rounded-lg px-3 py-2">
+                  <span className="text-sm font-semibold bg-purple-500 rounded-lg px-2 py-1 inline-block text-gray-800">
+                    Jane Smith:
+                  </span>
+                  <p className="mt-1 text-gray-300">I have a question about your product.</p>
+                </div>
+                <span className="text-sm text-gray-500">09:36 AM</span>
+              </div>
+            </div>
+          </CardContent>
+          <CardFooter className="bg-gray-700">
+            <div className="flex items-center space-x-2">
+              <Textarea className="w-full bg-gray-600 text-gray-300" placeholder="Type your message here..." />
+              <Button className="bg-blue-500 hover:bg-blue-600 text-white">Send</Button>
+            </div>
+          </CardFooter>
+        </Card>
+      </section>
+    </main>
+  )
+}
+
+function GroupIcon(props) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M3 7V5c0-1.1.9-2 2-2h2" />
+      <path d="M17 3h2c1.1 0 2 .9 2 2v2" />
+      <path d="M21 17v2c0 1.1-.9 2-2 2h-2" />
+      <path d="M7 21H5c-1.1 0-2-.9-2-2v-2" />
+      <rect width="7" height="5" x="7" y="7" rx="1" />
+      <rect width="7" height="5" x="10" y="12" rx="1" />
+    </svg>
+  )
+}
+
+
